@@ -1,26 +1,51 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// pseudo database
+const data = [
+  { id: 1, title: "Message number 1", body: "Content message number 1 ..." },
+  { id: 2, title: "Message number 2", body: "Content message number 2 ..." }
+];
+
+setInterval(() => {
+  const index = data.length + 1;
+  data.push({
+    id: index,
+    title: `Message number ${index}`,
+    body: `Content message number ${index} ...`
+  });
+}, 5000);
+
+class App extends Component {
+  state = {
+    comments: [...data]
+  };
+
+  getData = () => {
+    if (this.state.comments.length !== data.length) {
+      this.setState({
+        comments: [...data]
+      });
+    }
+  };
+
+  componentDidMount() {
+    this.idI = setInterval(this.getData, 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.idI);
+  }
+
+  render() {
+    const comments = this.state.comments.map(comment => (
+      <div key={comment.id}>
+        <h4>{comment.title}</h4>
+        <div>{comment.body}</div>
+      </div>
+    ));
+    return <div className="App">{comments.reverse()}</div>;
+  }
 }
 
 export default App;
