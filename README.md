@@ -1,8 +1,6 @@
-# Message Loading App
+# Messages Loading App See [DEMO](https://paulinastefanska.github.io/messagesLoading)
 
-Create-React-App exercise
-
-### See [DEMO](https://paulinastefanska.github.io/messagesLoading)
+## Create-React-App exercise
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
