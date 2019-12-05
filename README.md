@@ -1,3 +1,9 @@
+# Message Loading App
+
+Create-React-App exercise
+
+### See [DEMO](https://paulinastefanska.github.io/messagesLoading)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
